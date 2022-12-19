@@ -3,4 +3,17 @@
 <body>
     <script src="peerjs.min.js"></script>
     <script src="peerproxy.js"></script>
+    <script>
+        server = new PeerProxyServer();
+        server.register_handler('fetch', function(data, opts) {
+            console.log("from the client:", data);
+            return ('[[this is from the server]]');
+        });
+
+        setTimeout(function() {
+            client = new PeerProxy(server.peer.id)
+            client.fetch(123).then((d)=>{console.log("I got:", d)})
+        }, 1000);
+
+    </script>
 </body>
