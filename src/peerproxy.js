@@ -39,6 +39,11 @@ class PeerProxyServer {
         });
         this.handlers = {}
     }
+
+    get_id() {
+        return this.peer.id;
+    }
+
     data_answer_callback(conn) {
         var self = this;
         return function (data) {
