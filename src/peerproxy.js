@@ -1,4 +1,4 @@
-
+import { Peer } from "peerjs";
 
 /**
  * 
@@ -214,4 +214,11 @@ class PeerProxy {
             }
         });
     }
+}
+
+export {
+    Peer,
+    PeerProxy,
+    PeerProxyServer,
+    PeerProxyAuthenticator,
 }
