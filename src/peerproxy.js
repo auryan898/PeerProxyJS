@@ -200,9 +200,9 @@ class _PeerProxy {
 }
 
 class PeerProxy {
-    constructor(peer_id, jwt) {
+    constructor(peer_id, authenticator) {
         var self = this;
-        this._peerproxy = new _PeerProxy(peer_id, jwt);
+        this._peerproxy = new _PeerProxy(peer_id, authenticator);
 
         return new Proxy({}, {
             get(target, prop, receiver) {
@@ -221,4 +221,5 @@ export {
     PeerProxy,
     PeerProxyServer,
     PeerProxyAuthenticator,
+    value_to_promise,
 }
